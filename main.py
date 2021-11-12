@@ -26,7 +26,22 @@ def next_turn(row,col):
 
 
 def check_winner():
-    pass;
+    for row in range(3):
+        if buttons[row][0]['text'] == buttons[row][1]['text'] == buttons[row][2]['text'] != "":
+            return True;
+    for col in range(3):
+        if buttons[0][col]['text'] == buttons[1][col]['text'] == buttons[2][col]['text'] != "":
+            return True;
+    
+    if buttons[0][0]['text'] == buttons[1][1]['text'] == buttons[2][2]['text'] != "":
+        return True;
+    elif buttons[0][2]['text'] == buttons[1][1]['text'] == buttons[2][0]['text'] != "":
+        return True;
+    elif empty_spaces() is False:
+        return "Tie";
+    else:
+        return False;
+    
 
 def empty_spaces():
     spaces = 9;
@@ -66,7 +81,8 @@ for row in range(3):
                                    text="",
                                    font=('consolas',30),
                                    width=6,
-                                   height=2);
+                                   height=2,
+                                   command=lambda row=row,col=col:next_turn(row,col));
         buttons[row][col].grid(row=row,column=col);
 
 mywin.mainloop();
