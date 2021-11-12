@@ -56,6 +56,16 @@ def empty_spaces():
     else:
         return True;
 
+def new_game():
+    global player;
+
+    player = random.choice(players);
+    label.config(text=(player + " turn"));
+
+    for row in range(3):
+        for col in range(3):
+            buttons[row][col]['text'] = "";
+
 mywin = Tk();
 mywin.title("Tic Tac Toe");
 
@@ -69,7 +79,8 @@ buttons = [[0,0,0],
            [0,0,0],
            [0,0,0]];
 restart_btn = Button(text="Restart",
-                     font=('consolas',20));
+                     font=('consolas',20),
+                     command=new_game);
 restart_btn.pack();
 
 frame = Frame(mywin);
