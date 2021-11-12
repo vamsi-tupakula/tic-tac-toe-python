@@ -1,6 +1,19 @@
 from tkinter import *;
 import random
 
+def empty_spaces():
+    spaces = 9;
+
+    for row in range(3):
+        for col in range(3):
+            if buttons[row][col]['text'] != "":
+                spaces -= 1;
+    
+    if spaces == 0:
+        return False;
+    else:
+        return True;
+
 mywin = Tk();
 mywin.title("Tic Tac Toe");
 
