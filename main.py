@@ -90,9 +90,9 @@ for row in range(3):
     for col in range(3):
         buttons[row][col] = Button(frame,
                                    text="",
-                                   font=('consolas',30),
-                                   width=6,
-                                   height=2,
+                                   font=('consolas',40),
+                                   width=4,
+                                   height=1,
                                    command=lambda row=row,col=col:next_turn(row,col));
         buttons[row][col].grid(row=row,column=col);
 
